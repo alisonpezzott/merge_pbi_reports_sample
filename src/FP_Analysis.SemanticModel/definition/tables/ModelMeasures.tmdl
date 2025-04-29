@@ -1,0 +1,29 @@
+table ModelMeasures
+	lineageTag: 4a8bc606-d4a2-40fb-8d9c-f5c15a9b462a
+
+	measure 'Actual Amount' = ```
+			SUM('FactBudgetActual'[ActualAmount]) 
+			```
+		formatString: #,0
+		lineageTag: 0457ba2a-ecdc-428e-9fec-34614fc1c455
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column Value
+		isHidden
+		formatString: 0
+		lineageTag: c1e49cbb-39df-4c66-a42c-10420a1f9a80
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ModelMeasures = calculated
+		mode: import
+		source = ```
+				{0} 
+				```
+
+	annotation PBI_Id = 45970f7affa6491c8c3eb2d3ddc616ae
+
