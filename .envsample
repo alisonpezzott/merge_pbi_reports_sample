@@ -1,0 +1,4 @@
+FABRIC_CLIENT_ID=xxxxxxxx-xxxx-xxxxx-xxxx-xxxxxxxxxxxx
+FABRIC_CLIENT_SECRET=xxxxxxxx-xxxx-xxxxx-xxxx-xxxxxxxxxxxx
+FABRIC_TENANT_ID=xxxxxxxx-xxxx-xxxxx-xxxx-xxxxxxxxxxxx
+ADMIN_UPNS=xxxxxxxx-xxxx-xxxxx-xxxx-xxxxxxxxxxxx,xxxxxxxx-xxxx-xxxxx-xxxx-xxxxxxxxxxxx

@@ -1,0 +1,2 @@
+ms-fabric-cli 
+python-dotenv

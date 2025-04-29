@@ -1,0 +1,16 @@
+relationship AutoDetected_3f7c31c5-50e4-46c0-9faa-a829332c073a
+	fromColumn: FactBudgetActual.SubsidiaryAccountKey
+	toColumn: DimAccount.SubsidiaryAccountKey
+
+relationship AutoDetected_77b88ec7-d0a3-4f6e-a7bd-b1cbd2696804
+	fromColumn: DimAccount.AccountGroupKey
+	toColumn: DimAccountGroup.AccountGroupKey
+
+relationship AutoDetected_843fc5ad-9248-4601-8bad-fc58af1e7f28
+	fromColumn: FactBudgetActual.BranchKey
+	toColumn: DimBranch.BranchKey
+
+relationship 348d58b7-ceb7-f3dd-dde7-984e2e22d1ff
+	fromColumn: FactBudgetActual.Date
+	toColumn: DimDate.Date
+
