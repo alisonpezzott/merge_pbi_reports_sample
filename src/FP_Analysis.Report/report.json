@@ -55,6 +55,44 @@
         }
       ],
       "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "FinancialStatement",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"a2c8ceb5139582ee3cbc\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimAccountGroup\"}},\"Property\":\"AccountGroup\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimAccountGroup\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"AccountGroup\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'(-) Despesas Operacionais'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}}]",
+      "height": 720.00,
+      "name": "c05cb36ed44d5b0b0956",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"110df6a0e223c20ed5b6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":218.93691115730365,\"y\":46.02650973193316,\"z\":0,\"width\":1034.9744891072537,\"height\":645.6150959695489,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"pivotTable\",\"projections\":{\"Values\":[{\"queryRef\":\"ModelMeasures.Actual Amount\"}],\"Rows\":[{\"queryRef\":\"DimAccountGroup.AccountGroup\",\"active\":true},{\"queryRef\":\"DimAccount.AccountSubgroup\",\"active\":true},{\"queryRef\":\"DimAccount.ControlAccount\",\"active\":true},{\"queryRef\":\"DimAccount.SubsidiaryAccount\",\"active\":true}],\"Columns\":[{\"queryRef\":\"DimDate.Quarter\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"ModelMeasures\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"DimAccountGroup\",\"Type\":0},{\"Name\":\"d1\",\"Entity\":\"DimAccount\",\"Type\":0},{\"Name\":\"d2\",\"Entity\":\"DimDate\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Actual Amount\"},\"Name\":\"ModelMeasures.Actual Amount\",\"NativeReferenceName\":\"Actual Amount\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"AccountGroup\"},\"Name\":\"DimAccountGroup.AccountGroup\",\"NativeReferenceName\":\"AccountGroup\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"AccountSubgroup\"},\"Name\":\"DimAccount.AccountSubgroup\",\"NativeReferenceName\":\"AccountSubcategory\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"ControlAccount\"},\"Name\":\"DimAccount.ControlAccount\",\"NativeReferenceName\":\"ControlAccount\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"SubsidiaryAccount\"},\"Name\":\"DimAccount.SubsidiaryAccount\",\"NativeReferenceName\":\"SubsidiaryAccount\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d2\"}},\"Property\":\"Quarter\"},\"Name\":\"DimDate.Quarter\",\"NativeReferenceName\":\"Quarter\"}]},\"expansionStates\":[{\"roles\":[\"Rows\"],\"levels\":[{\"queryRefs\":[\"DimAccountGroup.AccountGroup\"],\"isPinned\":true},{\"queryRefs\":[\"DimAccount.AccountSubgroup\"],\"isPinned\":true},{\"queryRefs\":[\"DimAccount.ControlAccount\"],\"isPinned\":true},{\"queryRefs\":[\"DimAccount.SubsidiaryAccount\"],\"isCollapsed\":true,\"isPinned\":true}],\"root\":{\"identityValues\":null}}],\"drillFilterOtherVisuals\":true,\"objects\":{\"values\":[{\"properties\":{\"wordWrap\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 645.62,
+          "width": 1034.97,
+          "x": 218.94,
+          "y": 46.03,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"91ad47d9c83cdcd31bcc\",\"layouts\":[{\"id\":0,\"position\":{\"x\":26.728538283062644,\"y\":237.58700696055683,\"z\":2,\"width\":161.85614849187934,\"height\":152.94663573085847,\"tabOrder\":2}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"DimBranch.Branch\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimBranch\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Branch\"},\"Name\":\"DimBranch.Branch\",\"NativeReferenceName\":\"Branch\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimBranch\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Branch\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Curitiba'\"}}]]}}}]}}}}]}}}",
+          "filters": "[]",
+          "height": 152.95,
+          "width": 161.86,
+          "x": 26.73,
+          "y": 237.59,
+          "z": 2.00
+        },
+        {
+          "config": "{\"name\":\"e5f422eeaa19641d6d07\",\"layouts\":[{\"id\":0,\"position\":{\"x\":27.367113894662957,\"y\":46.02650973193316,\"z\":1,\"width\":161.71476392300838,\"height\":153.00704586561562,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"DimDate.Year\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Year\"},\"Name\":\"DimDate.Year\",\"NativeReferenceName\":\"Year\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Year\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"2024L\"}}]]}}}]}}}}]}}}",
+          "filters": "[]",
+          "height": 153.01,
+          "width": 161.71,
+          "x": 27.37,
+          "y": 46.03,
+          "z": 1.00
+        }
+      ],
+      "width": 1280.00
     }
   ]
 }
