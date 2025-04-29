@@ -79,6 +79,13 @@
             "x": 927.53373668855886,
             "y": 197.76523540232529
           },
+          "nodeIndex": "MyCalculations",
+          "size": {
+              "height": 200,
+              "width": 234
+            },
+            "zIndex": 0
+          },
           "nodeIndex": "ModelMeasures",
           "size": {
             "height": 200,

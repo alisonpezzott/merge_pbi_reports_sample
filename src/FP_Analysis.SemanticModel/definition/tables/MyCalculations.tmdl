@@ -1,0 +1,45 @@
+table MyCalculations
+	lineageTag: 3459353d-b2a6-4b69-9145-a1f18c6dd516
+
+	measure 'Op Exp Actual' = ```
+			
+			ABS(CALCULATE(
+			    SUM('FactBudgetActual'[ActualAmount]),
+			    'DimAccount'[AccountGroupKey] = 6
+			))
+			
+			```
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: bdc1a263-2750-4360-abff-fb66b319f5a9
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Op Exp Budget' =
+			
+			ABS(CALCULATE(
+			    SUM('FactBudgetActual'[BudgetAmount]),
+			    'DimAccount'[AccountGroupKey] = 6
+			))
+		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
+		lineageTag: 0975cf8d-0871-4182-815f-d18dd0903cd2
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column Value
+		isHidden
+		formatString: 0
+		lineageTag: 2d67d3ed-8edb-45af-a1cb-3b608e87e7cd
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MyCalculations = calculated
+		mode: import
+		source = ```
+				{0} 
+				```
+
+	annotation PBI_Id = d62f9b5be90e4e97bf91280408f8cc2e
+
