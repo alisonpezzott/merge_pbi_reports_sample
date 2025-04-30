@@ -1,0 +1,71 @@
+table MyMeasures
+	lineageTag: 59d7d7ea-f609-4a4c-92f5-37eaf51ed92d
+
+	measure Actuals = ```
+			
+			
+			VAR __Default = SUM(FactBudgetActual[ActualAmount])
+			
+			VAR __Subtotal = 
+			    CALCULATE(
+			        SUM(FactBudgetActual[ActualAmount]),
+			        DimAccountGroup[AccountGroupKey] <= MAX(DimAccountGroup[AccountGroupKey]),
+			        ALL(DimAccount)
+			    )
+			
+			VAR __Subgroup = SELECTEDVALUE(DimAccount[AccountSubgroup])
+			VAR __Control = SELECTEDVALUE(DimAccount[ControlAccount])
+			VAR __Account = SELECTEDVALUE(DimAccount[SubsidiaryAccount])
+			VAR __GroupSubtotal = SELECTEDVALUE(DimAccountGroup[isSubtotal]) = 1
+			
+			VAR __Result = 
+			    SWITCH(
+			        TRUE(),
+			        NOT ISINSCOPE(DimAccount[AccountSubgroup]) && __GroupSubtotal, __Subtotal,
+			        ISINSCOPE(DimAccount[ControlAccount]) && __Control = __Subgroup, BLANK(),
+			        ISINSCOPE(DimAccount[SubsidiaryAccount]) && __Account = __Control, BLANK(),
+			        __Default
+			    )
+			
+			RETURN
+			    __Result
+			```
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: b8475eed-e9cd-4cf9-a46a-ac08e33b2e69
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure QoQ = ```
+			
+			
+			VAR __PQ = CALCULATE([Actuals], PREVIOUSQUARTER(DimDate[Date]))
+			
+			VAR __Result = 
+			    DIVIDE(
+			        [Actuals] - __PQ,
+			        ABS(__PQ)
+			    )
+			
+			RETURN
+			    __Result 
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: edc076cb-0aac-4718-ab82-787376aff06a
+
+	column Value
+		formatString: 0
+		lineageTag: ec1af1ae-1e5d-497b-b852-7d94b01f3c64
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MyMeasures = calculated
+		mode: import
+		source = ```
+				{0} 
+				```
+
+	annotation PBI_Id = 1bbda79d3e944a4eaf9ea2fff1736650
+
