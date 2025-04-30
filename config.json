@@ -1,8 +1,8 @@
 {
-    "staging": {
-        "spnSecret": "STG",
+    "develop": {
+        "spnSecret": "DEV",
         "capacity": "none",
-        "workspace": "FP_Analysis_STG",
+        "workspace": "FP_Analysis_DEV",
         "adminUPNs": "9322eb4a-4132-4bd1-8df1-5cd3d1d2400b",
         "semanticModelsParameters": {
             "SqlServerInstance": "",

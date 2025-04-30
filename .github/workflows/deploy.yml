@@ -3,7 +3,7 @@ name: deploy
 on:
   push:
     branches:
-      - staging
+      - develop
       - main    
     paths:
       - '**/src/**'           
@@ -16,7 +16,7 @@ on:
         default: 'main'
         type: choice
         options:
-          - staging
+          - develop
           - main
     
 env:
