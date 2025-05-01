@@ -46,6 +46,35 @@
         }
       ],
       "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "BudgetActual",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "c05cb36ed44d5b0b0956",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"381c39bdd2045cd5c002\",\"layouts\":[{\"id\":0,\"position\":{\"x\":39.03706318390399,\"y\":79.70067066713732,\"z\":0,\"width\":279.76561948464524,\"height\":279.76561948464524,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"DimDate.Year\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Year\"},\"Name\":\"DimDate.Year\",\"NativeReferenceName\":\"Year\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Year\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"2024L\"}}]]}}}]}}}}]}}}",
+          "filters": "[]",
+          "height": 279.77,
+          "width": 279.77,
+          "x": 39.04,
+          "y": 79.70,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"ebb4af9ab99d0aaeb093\",\"layouts\":[{\"id\":0,\"position\":{\"x\":406.345385302553,\"y\":78.95810804457192,\"z\":1,\"width\":828.097230711364,\"height\":556.5583713385679,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"DimDate.Month\",\"active\":true}],\"Y\":[{\"queryRef\":\"MyMeasures.Budget Amount\"},{\"queryRef\":\"MyMeasures.Actual Amount\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"MyMeasures\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Month\"},\"Name\":\"DimDate.Month\",\"NativeReferenceName\":\"Month\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Budget Amount\"},\"Name\":\"MyMeasures.Budget Amount\",\"NativeReferenceName\":\"Budget Amount\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Actual Amount\"},\"Name\":\"MyMeasures.Actual Amount\",\"NativeReferenceName\":\"Actual Amount\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 556.56,
+          "width": 828.10,
+          "x": 406.35,
+          "y": 78.96,
+          "z": 1.00
+        }
+      ],
+      "width": 1280.00
     }
   ]
 }
