@@ -1,16 +1,21 @@
 table MyMeasures
-	lineageTag: 7e987f3a-09dd-4e7e-99b7-3710036dac41
+	
 
 	measure 'Total Actuals' = SUM(FactBudgetActual[ActualAmount])
 		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
-		lineageTag: 508db96e-79cb-434b-b559-ecb6363a6d04
+
+
+	measure 'Total Budget' = ```
+			SUM(FactBudgetActual[BudgetAmount]) 
+			```
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
 	column Value
 		isHidden
 		formatString: 0
-		lineageTag: ac39b2ec-12e7-4aff-905b-56ace43b7c72
 		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [Value]
@@ -23,5 +28,4 @@ table MyMeasures
 				{0} 
 				```
 
-	annotation PBI_Id = 183378f853554bedb0c725fedfb6fc9d
 

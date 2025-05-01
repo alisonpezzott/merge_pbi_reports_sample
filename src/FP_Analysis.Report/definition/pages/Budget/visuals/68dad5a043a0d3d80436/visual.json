@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.7.0/schema.json",
+  "name": "68dad5a043a0d3d80436",
+  "position": {
+    "x": 548.0247005162372,
+    "y": 178.56194846452524,
+    "z": 0,
+    "height": 300,
+    "width": 300
+  },
+  "visual": {
+    "visualType": "card",
+    "autoSelectVisualType": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MyMeasures"
+                    }
+                  },
+                  "Property": "Total Budget"
+                }
+              },
+              "queryRef": "MyMeasures.Total Budget",
+              "nativeQueryRef": "Total Budget"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
