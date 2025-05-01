@@ -1,0 +1,53 @@
+name: deploy
+  
+on:
+  push:
+    branches:
+      - develop
+      - main    
+    paths:
+      - '**/src/**'           
+      
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Choose the branch'
+        required: true
+        default: 'main'
+        type: choice
+        options:
+          - develop
+          - main
+    
+env:
+  environment: "${{ github.event.inputs.environment != '' && github.event.inputs.environment || github.ref_name }}"
+
+jobs:
+  deploy:    
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.12"
+
+      - name: Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      - name: Verify Fabric CLI Installation
+        run: |
+          fab --version
+          which fab
+
+      - name: Run Deployment Script        
+        env:
+          FABRIC_CLIENT_ID: ${{ secrets.FABRIC_CLIENT_ID }}
+          FABRIC_CLIENT_SECRET: ${{ secrets.FABRIC_CLIENT_SECRET }}
+          FABRIC_TENANT_ID: ${{ secrets.FABRIC_TENANT_ID }}          
+        run: python scripts/deploy.py --spn-auth --environment ${{ env.environment }}

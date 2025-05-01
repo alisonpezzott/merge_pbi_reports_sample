@@ -1,0 +1,88 @@
+table DimDate
+	lineageTag: d4dfdb0d-ea47-4f08-936e-fc0642d5fff4
+	dataCategory: Time
+
+	column Date
+		dataType: dateTime
+		isKey
+		formatString: Long Date
+		lineageTag: 6b9e678b-a607-4442-a4ac-8a8a7112ceb9
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 01a90870-7dbc-4d04-8836-4486aa76f15e
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = User
+
+	column Quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: d82ac2eb-1dde-4453-beac-9be661792e5a
+		summarizeBy: none
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = User
+
+	column Month
+		dataType: string
+		lineageTag: ab4c6ef1-170e-498b-81e1-b5f0518c2b31
+		summarizeBy: none
+		sourceColumn: Month
+		sortByColumn: MonthNo
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNo
+		dataType: int64
+		formatString: 0
+		lineageTag: a21ce588-3173-43ec-a616-7683dbd8f889
+		summarizeBy: none
+		sourceColumn: MonthNo
+
+		annotation SummarizationSetBy = User
+
+	partition DimDate = m
+		mode: import
+		queryGroup: Dimensions
+		source = ```
+				let
+				    Table = "DimDate.csv",
+				    
+				    Response = Web.Contents(
+				        Url,
+				        [
+				            RelativePath = RelativePath & Table
+				        ]
+				    ),
+				    
+				    Source = Csv.Document(
+				        Response, 
+				        [
+				            Delimiter=",", 
+				            Columns=5, 
+				            Encoding=65001, 
+				            QuoteStyle=QuoteStyle.None
+				        ]
+				    ), 
+				
+				    PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    ChangedType = Table.TransformColumnTypes(PromotedHeaders,{{"Date", type date}, {"Year", Int64.Type}, {"Quarter", Int64.Type}, {"MonthNo", Int64.Type}})
+				in
+				    ChangedType
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
