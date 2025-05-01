@@ -1,0 +1,16 @@
+expression Url = "https://raw.githubusercontent.com" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: a4cef070-9265-45aa-8269-edbb985c44dc
+	queryGroup: Parameters
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression RelativePath = "/alisonpezzott/budget-versus-actuals-sample-data/refs/heads/main/" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 7ce08bdd-56c0-41ab-b82b-92209a5df0da
+	queryGroup: Parameters
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+

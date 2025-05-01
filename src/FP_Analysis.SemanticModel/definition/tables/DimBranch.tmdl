@@ -1,0 +1,54 @@
+table DimBranch
+	lineageTag: 81fa7e47-7ffd-4a28-a13b-e04fe98c526a
+
+	column BranchKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 8d7a2266-880f-40db-8949-bbfc60bfd5c6
+		summarizeBy: none
+		sourceColumn: BranchKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Branch
+		dataType: string
+		lineageTag: a196a533-e259-499a-b10b-b48a41dbfa4d
+		summarizeBy: none
+		sourceColumn: Branch
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimBranch = m
+		mode: import
+		queryGroup: Dimensions
+		source = ```
+				let
+				    Table = "DimBranch.csv",
+				    
+				    Response = Web.Contents(
+				        Url,
+				        [
+				            RelativePath = RelativePath & Table
+				        ]
+				    ),
+				    
+				    Source = Csv.Document(
+				        Response, 
+				        [
+				            Delimiter=",", 
+				            Columns=2, 
+				            Encoding=65001, 
+				            QuoteStyle=QuoteStyle.None
+				        ]
+				    ), 
+				
+				    PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    ChangedType = Table.TransformColumnTypes(PromotedHeaders,{{"BranchKey", Int64.Type}})
+				in
+				    ChangedType
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
