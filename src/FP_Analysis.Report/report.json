@@ -46,6 +46,35 @@
         }
       ],
       "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "BudgetActuals",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "c05cb36ed44d5b0b0956",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"8ede637941b61b708e89\",\"layouts\":[{\"id\":0,\"position\":{\"x\":489.5898340981292,\"y\":66.68831627250265,\"z\":0,\"width\":609.9541122484999,\"height\":518.8676314860572}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Y\":[{\"queryRef\":\"ModelMeasures.Total Budget\"},{\"queryRef\":\"ModelMeasures.Total Actual\"}],\"Category\":[{\"queryRef\":\"DimDate.Date\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"ModelMeasures\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Total Budget\"},\"Name\":\"ModelMeasures.Total Budget\",\"NativeReferenceName\":\"Total Budget\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Total Actual\"},\"Name\":\"ModelMeasures.Total Actual\",\"NativeReferenceName\":\"Total Actual\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Date\"},\"Name\":\"DimDate.Date\",\"NativeReferenceName\":\"Date\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Total Budget\"}}}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 518.87,
+          "width": 609.95,
+          "x": 489.59,
+          "y": 66.69,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"bf3e96275b002ca40c79\",\"layouts\":[{\"id\":0,\"position\":{\"x\":139.88280974232262,\"y\":66.68831627250265,\"z\":1,\"width\":349.7070243558066,\"height\":518.8676314860572,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"DimBranch.Branch\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimBranch\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Branch\"},\"Name\":\"DimBranch.Branch\",\"NativeReferenceName\":\"Branch\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimBranch\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Branch\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'São Paulo'\"}}]]}}}]}}}}]}}}",
+          "filters": "[]",
+          "height": 518.87,
+          "width": 349.71,
+          "x": 139.88,
+          "y": 66.69,
+          "z": 1.00
+        }
+      ],
+      "width": 1280.00
     }
   ]
 }

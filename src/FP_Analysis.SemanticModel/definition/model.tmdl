@@ -32,6 +32,7 @@ ref table DimBranch
 ref table DimDate
 ref table FactBudgetActual
 ref table MyMeasures
+ref table ModelMeasures
 
 ref cultureInfo en-US
 
