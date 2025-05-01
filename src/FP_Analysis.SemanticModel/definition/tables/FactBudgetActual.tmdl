@@ -1,0 +1,97 @@
+table FactBudgetActual
+	lineageTag: 0c5d4904-becc-4108-a73b-2a03d7b340a0
+
+	column BranchKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a6134ccb-943c-422c-8d87-1401523f47ba
+		summarizeBy: none
+		sourceColumn: BranchKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 76d36348-3b3c-4813-967c-0c4f1ac50a34
+		summarizeBy: none
+		sourceColumn: Date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column SubsidiaryAccountKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: f4479ffb-99b5-4cd0-a388-42987beb5d40
+		summarizeBy: none
+		sourceColumn: SubsidiaryAccountKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BudgetAmount
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: db6d66c7-5740-4295-956a-8c2bdd19c80a
+		summarizeBy: none
+		sourceColumn: BudgetAmount
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column ActualAmount
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: 39855484-aa18-4ff7-9e31-bde163b19ccc
+		summarizeBy: none
+		sourceColumn: ActualAmount
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	partition FactBudgetActual = m
+		mode: import
+		queryGroup: FactTables
+		source = ```
+				let
+				    Table = "FactBudgetActual.csv",
+				    
+				    Response = Web.Contents(
+				        Url,
+				        [
+				            RelativePath = RelativePath & Table
+				        ]
+				    ),
+				    
+				    Source = Csv.Document(
+				        Response, 
+				        [
+				            Delimiter=",", 
+				            Columns=5, 
+				            Encoding=65001, 
+				            QuoteStyle=QuoteStyle.None
+				        ]
+				    ), 
+				
+				    PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    ChangedType = Table.TransformColumnTypes(PromotedHeaders,{{"BranchKey", Int64.Type}, {"Date", type date}, {"SubsidiaryAccountKey", Int64.Type}, {"BudgetAmount", Currency.Type}, {"ActualAmount", Currency.Type}})
+				in
+				    ChangedType
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,106 @@
+table DimAccount
+	lineageTag: 35c187a9-0c21-45e8-9766-e9a83df81fad
+
+	column ControlAccountKey
+		dataType: int64
+		formatString: 0
+		lineageTag: cdd44611-5344-49ec-82a8-18124016de2a
+		summarizeBy: none
+		sourceColumn: ControlAccountKey
+
+		annotation SummarizationSetBy = User
+
+	column ControlAccount
+		dataType: string
+		lineageTag: a6f29af2-b3ee-43f7-9d3e-91535cd75d84
+		summarizeBy: none
+		sourceColumn: ControlAccount
+		sortByColumn: ControlAccountKey
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubsidiaryAccountKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 0dad72c7-fea3-42e0-a52d-807eab30e1a1
+		summarizeBy: none
+		sourceColumn: SubsidiaryAccountKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubsidiaryAccount
+		dataType: string
+		lineageTag: 2d3f036d-6da4-4bf6-a6b3-e6492a18619e
+		summarizeBy: none
+		sourceColumn: SubsidiaryAccount
+		sortByColumn: SubsidiaryAccountKey
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountGroupKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 4c74eb38-9c52-48f1-a04a-cc09f1425d23
+		summarizeBy: none
+		sourceColumn: AccountGroupKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountSubgroupKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 32a7b562-1e3d-44d0-b54d-4876a8ddcbbd
+		summarizeBy: none
+		sourceColumn: AccountSubgroupKey
+
+		annotation SummarizationSetBy = User
+
+	column AccountSubgroup
+		dataType: string
+		lineageTag: 8195832d-27e0-4574-99a4-e8a7342c1bfa
+		summarizeBy: none
+		sourceColumn: AccountSubgroup
+		sortByColumn: AccountSubgroupKey
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimAccount = m
+		mode: import
+		queryGroup: Dimensions
+		source = ```
+				let
+				    Table = "DimAccount.csv",
+				    
+				    Response = Web.Contents(
+				        Url,
+				        [
+				            RelativePath = RelativePath & Table
+				        ]
+				    ),
+				    
+				    Source = Csv.Document(
+				        Response, 
+				        [
+				            Delimiter=",", 
+				            Columns=7, 
+				            Encoding=65001, 
+				            QuoteStyle=QuoteStyle.None
+				        ]
+				    ), 
+				
+				    PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    ChangedType = Table.TransformColumnTypes(PromotedHeaders,{{"AccountGroupKey", Int64.Type}, {"AccountSubgroupKey", Int64.Type}, {"ControlAccountKey", Int64.Type}, {"SubsidiaryAccountKey", Int64.Type}})
+				in
+				    ChangedType
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

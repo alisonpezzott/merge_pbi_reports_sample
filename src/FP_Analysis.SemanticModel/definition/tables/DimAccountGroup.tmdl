@@ -1,0 +1,66 @@
+table DimAccountGroup
+	lineageTag: e605c255-3155-43bb-bc9f-04c60ec2c353
+
+	column AccountGroup
+		dataType: string
+		lineageTag: 78989de0-0e2a-4352-8977-37e99e3db2f0
+		summarizeBy: none
+		sourceColumn: AccountGroup
+		sortByColumn: AccountGroupKey
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountGroupKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 8602f840-3d9e-44cd-aa5e-731fe0b29d38
+		summarizeBy: none
+		sourceColumn: AccountGroupKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column isSubtotal
+		dataType: int64
+		formatString: 0
+		lineageTag: 27284f59-3170-4fa0-938f-17027a511b88
+		summarizeBy: none
+		sourceColumn: isSubtotal
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimAccountGroup = m
+		mode: import
+		queryGroup: Dimensions
+		source = ```
+				let
+				    Table = "DimAccountGroup.csv",
+				    
+				    Response = Web.Contents(
+				        Url,
+				        [
+				            RelativePath = RelativePath & Table
+				        ]
+				    ),
+				    
+				    Source = Csv.Document(
+				        Response, 
+				        [
+				            Delimiter=",", 
+				            Columns=3, 
+				            Encoding=65001, 
+				            QuoteStyle=QuoteStyle.None
+				        ]
+				    ), 
+				
+				    PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    ChangedType = Table.TransformColumnTypes(PromotedHeaders,{{"AccountGroupKey", Int64.Type}, {"isSubtotal", Int64.Type}})
+				in
+				    ChangedType
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
