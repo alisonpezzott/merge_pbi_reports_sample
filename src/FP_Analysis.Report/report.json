@@ -20,12 +20,31 @@
   "sections": [
     {
       "config": "{}",
-      "displayName": "Page 1",
+      "displayName": "FP_A",
       "displayOption": 1,
       "filters": "[]",
       "height": 720.00,
       "name": "c05cb36ed44d5b0b0956",
-      "visualContainers": [],
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"3216bbcbd76b072139d1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":80.88391555785415,\"y\":63.55164793831398,\"z\":1,\"width\":119.40006582349898,\"height\":184.8775212750952,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"DimDate.Year\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Year\"},\"Name\":\"DimDate.Year\",\"NativeReferenceName\":\"Year\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Year\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"2024L\"}}]]}}}]}}}}]}}}",
+          "filters": "[]",
+          "height": 184.88,
+          "width": 119.40,
+          "x": 80.88,
+          "y": 63.55,
+          "z": 1.00
+        },
+        {
+          "config": "{\"name\":\"f8ec6d69ad97074d3650\",\"layouts\":[{\"id\":0,\"position\":{\"x\":279.24208942592503,\"y\":63.55164793831398,\"z\":0,\"width\":920.5359913489115,\"height\":614.3325967370351,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"pivotTable\",\"projections\":{\"Values\":[{\"queryRef\":\"ModelMeasures.Actuals\"}],\"Rows\":[{\"queryRef\":\"DimAccountGroup.AccountGroup\",\"active\":true},{\"queryRef\":\"DimAccount.AccountSubgroup\",\"active\":true},{\"queryRef\":\"DimAccount.ControlAccount\",\"active\":true},{\"queryRef\":\"DimAccount.SubsidiaryAccount\",\"active\":true}],\"Columns\":[{\"queryRef\":\"DimDate.Quarter\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"ModelMeasures\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"DimAccountGroup\",\"Type\":0},{\"Name\":\"d1\",\"Entity\":\"DimAccount\",\"Type\":0},{\"Name\":\"d2\",\"Entity\":\"DimDate\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Actuals\"},\"Name\":\"ModelMeasures.Actuals\",\"NativeReferenceName\":\"Actuals\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"AccountGroup\"},\"Name\":\"DimAccountGroup.AccountGroup\",\"NativeReferenceName\":\"AccountGroup\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"AccountSubgroup\"},\"Name\":\"DimAccount.AccountSubgroup\",\"NativeReferenceName\":\"AccountSubgroup\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"ControlAccount\"},\"Name\":\"DimAccount.ControlAccount\",\"NativeReferenceName\":\"ControlAccount\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"SubsidiaryAccount\"},\"Name\":\"DimAccount.SubsidiaryAccount\",\"NativeReferenceName\":\"SubsidiaryAccount\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d2\"}},\"Property\":\"Quarter\"},\"Name\":\"DimDate.Quarter\",\"NativeReferenceName\":\"Quarter\"}]},\"expansionStates\":[{\"roles\":[\"Rows\"],\"levels\":[{\"queryRefs\":[\"DimAccountGroup.AccountGroup\"],\"isPinned\":true},{\"queryRefs\":[\"DimAccount.AccountSubgroup\"],\"isPinned\":true},{\"queryRefs\":[\"DimAccount.ControlAccount\"],\"isPinned\":true},{\"queryRefs\":[\"DimAccount.SubsidiaryAccount\"],\"isCollapsed\":true,\"isPinned\":true}],\"root\":{\"identityValues\":null}}],\"drillFilterOtherVisuals\":true,\"objects\":{\"subTotals\":[{\"properties\":{\"columnSubtotals\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"perRowLevel\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}},{\"properties\":{\"levelSubtotalEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}},\"selector\":{\"metadata\":\"DimAccountGroup.AccountGroup\"}}]}}}",
+          "filters": "[]",
+          "height": 614.33,
+          "width": 920.54,
+          "x": 279.24,
+          "y": 63.55,
+          "z": 0.00
+        }
+      ],
       "width": 1280.00
     }
   ]
