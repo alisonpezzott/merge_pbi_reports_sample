@@ -1,0 +1,192 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.7.0/schema.json",
+  "name": "5f8a98460050e90c295e",
+  "position": {
+    "x": 419.82603789552871,
+    "y": 155.99040857586158,
+    "z": 0,
+    "height": 494.93253091353608,
+    "width": 812.690770605106,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimDate"
+                    }
+                  },
+                  "Property": "Quarter"
+                }
+              },
+              "queryRef": "DimDate.Quarter",
+              "nativeQueryRef": "Quarter",
+              "active": true
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimAccountGroup"
+                    }
+                  },
+                  "Property": "AccountGroup"
+                }
+              },
+              "queryRef": "DimAccountGroup.AccountGroup",
+              "nativeQueryRef": "AccountGroup",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimAccount"
+                    }
+                  },
+                  "Property": "AccountSubgroup"
+                }
+              },
+              "queryRef": "DimAccount.AccountSubgroup",
+              "nativeQueryRef": "AccountSubgroup",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimAccount"
+                    }
+                  },
+                  "Property": "ControlAccount"
+                }
+              },
+              "queryRef": "DimAccount.ControlAccount",
+              "nativeQueryRef": "ControlAccount",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimAccount"
+                    }
+                  },
+                  "Property": "SubsidiaryAccount"
+                }
+              },
+              "queryRef": "DimAccount.SubsidiaryAccount",
+              "nativeQueryRef": "SubsidiaryAccount",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ModelMeasures"
+                    }
+                  },
+                  "Property": "Actuals"
+                }
+              },
+              "queryRef": "ModelMeasures.Actuals",
+              "nativeQueryRef": "Actuals"
+            }
+          ]
+        }
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "DimAccountGroup.AccountGroup"
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "DimAccount.AccountSubgroup"
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "DimAccount.ControlAccount"
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "DimAccount.SubsidiaryAccount"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "objects": {
+      "subTotals": [
+        {
+          "properties": {
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "perRowLevel": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "levelSubtotalEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DimAccountGroup.AccountGroup"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
