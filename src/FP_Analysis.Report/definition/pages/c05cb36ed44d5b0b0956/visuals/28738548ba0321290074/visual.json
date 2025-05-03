@@ -1,0 +1,58 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.6.0/schema.json",
+  "name": "28738548ba0321290074",
+  "position": {
+    "x": 396.272040302267,
+    "y": 73.450881612090669,
+    "z": 0,
+    "height": 460.65491183879089,
+    "width": 837.88413098236765,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "autoSelectVisualType": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimAccountGroup"
+                    }
+                  },
+                  "Property": "AccountGroup"
+                }
+              },
+              "queryRef": "DimAccountGroup.AccountGroup",
+              "nativeQueryRef": "AccountGroup",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Mymeasure"
+                    }
+                  },
+                  "Property": "Actuals"
+                }
+              },
+              "queryRef": "Mymeasure.Actuals",
+              "nativeQueryRef": "Actuals"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
