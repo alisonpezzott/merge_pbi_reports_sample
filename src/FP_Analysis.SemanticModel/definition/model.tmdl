@@ -22,7 +22,7 @@ annotation PBI_QueryOrder = ["Url","RelativePath","DimAccount","DimAccountGroup"
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBIDesktopVersion = 2.142.928.0 (25.04)+de52df9f0bb74ad93a80d89c52d63fe6d07e0e1b
+annotation PBIDesktopVersion = 2.141.1253.0 (25.03)+74f9999a1e95f78c739f3ea2b96ba340e9ba8729
 
 annotation PBI_ProTooling = ["TMDLView_Desktop","DevMode","TMDL-Extension"]
 
@@ -31,6 +31,7 @@ ref table DimAccountGroup
 ref table DimBranch
 ref table DimDate
 ref table FactBudgetActual
+ref table Mymeasure
 
 ref cultureInfo en-US
 
