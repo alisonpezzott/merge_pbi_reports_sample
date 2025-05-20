@@ -22,7 +22,7 @@ annotation PBI_QueryOrder = ["Url","RelativePath","DimAccount","DimAccountGroup"
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBIDesktopVersion = 2.141.1253.0 (25.03)+74f9999a1e95f78c739f3ea2b96ba340e9ba8729
+annotation PBIDesktopVersion = 2.142.1277.0 (25.04)+014fde450f93691fc9537f0758d73d1c5df153ef
 
 annotation PBI_ProTooling = ["TMDLView_Desktop","DevMode","TMDL-Extension"]
 
