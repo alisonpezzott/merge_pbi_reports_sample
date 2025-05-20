@@ -1,0 +1,51 @@
+{
+  "config": "{\"version\":\"5.59\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"version\":\"5.63\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"filterPaneHiddenInEditMode\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU10",
+            "path": "BaseThemes/CY24SU10.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "FP_A",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "c05cb36ed44d5b0b0956",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"28738548ba0321290074\",\"layouts\":[{\"id\":0,\"position\":{\"x\":396.272040302267,\"y\":73.45088161209067,\"z\":0,\"width\":837.8841309823677,\"height\":460.6549118387909,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"DimAccountGroup.AccountGroup\"}],\"Y\":[{\"queryRef\":\"Mymeasure.Actuals\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimAccountGroup\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"Mymeasure\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"AccountGroup\"},\"Name\":\"DimAccountGroup.AccountGroup\",\"NativeReferenceName\":\"AccountGroup\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Actuals\"},\"Name\":\"Mymeasure.Actuals\",\"NativeReferenceName\":\"Actuals\"}]},\"autoSelectVisualType\":true,\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 460.65,
+          "width": 837.88,
+          "x": 396.27,
+          "y": 73.45,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"885eb2ba63918b3d0e4c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20.856423173803524,\"y\":81.61209068010075,\"z\":1,\"width\":278.3879093198992,\"height\":442.5188916876574,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"DimDate.Year\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Year\"},\"Name\":\"DimDate.Year\",\"NativeReferenceName\":\"Year\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 442.52,
+          "width": 278.39,
+          "x": 20.86,
+          "y": 81.61,
+          "z": 1.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}
